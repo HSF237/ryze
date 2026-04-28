@@ -134,9 +134,9 @@ export default function AdminOrdersPage() {
           <div className="mt-8 p-6 bg-ink-50 rounded-lg">
             <h3 className="font-semibold text-ink-900 mb-3">How to fulfill orders:</h3>
             <ol className="space-y-2 text-sm text-ink-700 list-decimal list-inside">
-              <li>Check each order's customer details above</li>
+              <li>Check each order&apos;s customer details above</li>
               <li>Log into your CJ Dropshipping or AliExpress account</li>
-              <li>Place an order for the AeroPosture product using the customer's shipping address</li>
+              <li>Place an order for the AeroPosture product using the customer&apos;s shipping address</li>
               <li>Update the order status here when the supplier ships</li>
               <li>Share tracking number with customer via email</li>
             </ol>

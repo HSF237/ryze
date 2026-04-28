@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/lib/cart';
 import { PRODUCT } from '@/lib/products';
-import { loadStripe } from '@stripe/js';
+import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
@@ -133,7 +133,7 @@ function CheckoutForm() {
         <Link href="/" className="text-sm text-ink-500 hover:text-ink-900">← Continue shopping</Link>
         <h1 className="h-display text-3xl sm:text-4xl font-extrabold mt-2">Checkout</h1>
         <p className="text-ink-500 mt-1">
-          You're moments away from standing taller. We'll send your order confirmation by email.
+          You&apos;re moments away from standing taller. We&apos;ll send your order confirmation by email.
         </p>
       </header>
 
@@ -283,7 +283,7 @@ function CheckoutForm() {
         {isLoading ? 'Processing...' : `Place order — $${total.toFixed(2)}`}
       </button>
       <p className="text-[11px] text-ink-400 text-center">
-        By placing this order you agree to RYZE's
+        By placing this order you agree to RYZE&apos;s
         <Link href="/policies/terms" className="underline mx-1">Terms</Link>
         and
         <Link href="/policies/privacy" className="underline ml-1">Privacy Policy</Link>.
