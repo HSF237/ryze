@@ -1,6 +1,6 @@
 // API route for creating and managing orders
 import { NextResponse } from 'next/server';
-import stripe from '@/lib/stripe';
+import { getStripeInstance } from '@/lib/stripe';
 import { createOrder, updateOrderStatus, getAllOrders } from '@/lib/orders';
 
 // POST: Create a new order
@@ -37,7 +37,7 @@ export async function POST(request) {
     const totalAmount = price * quantity;
 
     // Create payment intent with Stripe
-    const paymentIntent = await stripe.paymentIntents.create({
+    const paymentIntent = await getStripeInstance().paymentIntents.create({
       amount: Math.round(totalAmount * 100), // Convert to cents
       currency: 'usd',
       payment_method: paymentMethodId,
