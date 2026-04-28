@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RYZE — Rise Up. Stand Tall. | Smart Posture Trainer</title>
+<meta name="description" content="Meet AeroPosture™ by RYZE — the smart posture trainer that gently retrains your back in 30 days. Free worldwide shipping. 60-day money-back guarantee." />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231ea679'/><path d='M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>" />
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: { 50:'#f6f7f9',100:'#eceef2',200:'#d5dae3',300:'#aab3c4',400:'#7a8499',500:'#566077',600:'#3d4659',700:'#2b3142',800:'#1a1e2c',900:'#0c0f17' },
+          brand: { 50:'#eefcf6',100:'#d5f7e8',200:'#aeecd2',300:'#79dbb6',400:'#42c294',500:'#1ea679',600:'#118661',700:'#0f6a4f',800:'#0f5440',900:'#0d4536' }
+        },
+        fontFamily: { sans:['Inter','system-ui','sans-serif'], display:['"Plus Jakarta Sans"','Inter','sans-serif'] },
+        boxShadow: { soft:'0 6px 24px -8px rgba(15, 23, 42, 0.18)' }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  .h-display { font-family: 'Plus Jakarta Sans', Inter, sans-serif; letter-spacing: -0.02em; }
+  .container-page { max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
+  @media (min-width: 640px) { .container-page { padding: 0 2rem; } }
+
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:9999px; font-weight:600; transition:all .2s; }
+  .btn-primary { background:#0c0f17; color:#fff; padding:.875rem 1.5rem; }
+  .btn-primary:hover { background:#1a1e2c; transform:translateY(-2px); box-shadow:0 6px 24px -8px rgba(15,23,42,.18); }
+  .btn-accent { background:#1ea679; color:#fff; padding:.875rem 1.5rem; }
+  .btn-accent:hover { background:#118661; transform:translateY(-2px); box-shadow:0 6px 24px -8px rgba(15,23,42,.18); }
+  .btn-ghost { padding:.75rem 1.25rem; color:#2b3142; border-radius:9999px; }
+  .btn-ghost:hover { background:#eceef2; }
+  .chip { display:inline-flex; align-items:center; gap:.375rem; border-radius:9999px; background:#eefcf6; color:#0f6a4f; padding:.25rem .75rem; font-size:.75rem; font-weight:600; }
+  .card { border-radius:1rem; border:1px solid #eceef2; background:#fff; padding:1.5rem; }
+  .input { width:100%; border-radius:.75rem; border:1px solid #d5dae3; background:#fff; padding:.75rem 1rem; font-size:.95rem; transition:all .2s; }
+  .input:focus { outline:none; border-color:#1ea679; box-shadow:0 0 0 4px rgba(30,166,121,.15); }
+
+  .mesh {
+    background-image:
+      radial-gradient(60% 50% at 80% 0%, rgba(30, 166, 121, 0.18) 0%, rgba(30, 166, 121, 0) 60%),
+      radial-gradient(50% 40% at 0% 100%, rgba(66, 194, 148, 0.18) 0%, rgba(66, 194, 148, 0) 60%),
+      linear-gradient(180deg, #ffffff 0%, #f6f7f9 100%);
+  }
+  .marquee-wrap { overflow:hidden; }
+  .marquee { display:flex; gap:3rem; animation: marquee 30s linear infinite; white-space:nowrap; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+
+  /* cart drawer */
+  .drawer-backdrop { transition: opacity .25s; }
+  .drawer { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+  .drawer.closed { transform: translateX(100%); }
+  .drawer.open  { transform: translateX(0); }
+
+  /* faq */
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height .3s ease, margin-top .3s ease; }
+  .faq-item.open .faq-body { max-height: 320px; margin-top: .75rem; }
+  .faq-item.open .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform .2s; }
+</style>
+</head>
+<body class="bg-white text-ink-900">
+
+<!-- Announcement bar -->
+<div class="bg-ink-900 text-white text-xs sm:text-sm">
+  <div class="container-page py-2.5 flex items-center justify-center gap-3 text-center">
+    <span class="hidden sm:inline opacity-70">⚡</span>
+    <span><strong class="font-semibold">Free worldwide shipping</strong><span class="opacity-70"> · 60-day money-back guarantee · Limited launch pricing</span></span>
+  </div>
+</div>
+
+<!-- Navbar -->
+<header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-ink-100">
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="index.html" aria-label="RYZE home" class="flex items-center gap-2">
+      <svg viewBox="0 0 32 32" class="h-7 w-7" aria-hidden="true">
+        <defs><linearGradient id="ryze-g" x1="0" x2="1" y1="1" y2="0"><stop offset="0%" stop-color="#0c0f17" /><stop offset="100%" stop-color="#1ea679" /></linearGradient></defs>
+        <rect width="32" height="32" rx="8" fill="url(#ryze-g)" />
+        <path d="M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span class="h-display font-extrabold text-xl text-ink-900">RYZE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-700">
+      <a href="#product" class="hover:text-ink-900">Shop</a>
+      <a href="#how" class="hover:text-ink-900">How it works</a>
+      <a href="#reviews" class="hover:text-ink-900">Reviews</a>
+      <a href="about.html" class="hover:text-ink-900">About</a>
+      <a href="faq.html" class="hover:text-ink-900">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="contact.html" class="btn-ghost hidden sm:inline-flex">Help</a>
+      <button id="cart-btn" class="relative inline-flex items-center justify-center rounded-full bg-ink-900 text-white h-11 w-11 hover:bg-ink-800 transition" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 L3 6 v14 a2 2 0 0 0 2 2 h14 a2 2 0 0 0 2 -2 V6 L18 2 Z" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6 h18" stroke-linecap="round"/><path d="M16 10 a4 4 0 0 1 -8 0" stroke-linecap="round"/></svg>
+        <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-brand-500 text-white text-[10px] font-bold rounded-full h-5 w-5 grid place-items-center">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="mesh">
+  <div class="container-page pt-12 sm:pt-20 pb-16 grid gap-12 lg:grid-cols-2 lg:items-center">
+    <div class="space-y-7">
+      <span class="chip"><span class="h-1.5 w-1.5 rounded-full bg-brand-500 pulse-dot"></span>New · Now shipping worldwide</span>
+      <h1 class="h-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.02]">
+        Rise up.<br /><span class="text-brand-600">Stand tall.</span>
+      </h1>
+      <p class="text-lg text-ink-600 max-w-lg">Meet <strong>AeroPosture™</strong> — the smart posture trainer that gently retrains your back in just <strong>15 minutes a day</strong>. Worn invisibly. Loved by 40,000+.</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="#product" class="btn btn-accent text-base">Shop now — $49.99
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12 H19 M13 5 L20 12 L13 19" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost text-base">How it works</a>
+      </div>
+      <div class="flex items-center gap-4 pt-2">
+        <div class="flex -space-x-2">
+          <img class="h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=80&h=80&fit=crop&q=80" alt="" />
+          <img class="h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&q=80" alt="" />
+          <img class="h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&q=80" alt="" />
+          <img class="h-9 w-9 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&q=80" alt="" />
+        </div>
+        <div class="text-sm">
+          <div class="flex items-center gap-1 text-amber-500">★★★★★<span class="text-ink-700 font-semibold ml-1">4.8</span></div>
+          <div class="text-ink-500">2,847+ verified reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-ink-100 shadow-soft">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=80&auto=format&fit=crop" alt="AeroPosture worn under a t-shirt" class="h-full w-full object-cover" />
+      </div>
+      <div class="absolute -left-4 sm:-left-8 top-10 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-3 max-w-[200px]">
+        <div class="h-9 w-9 rounded-full bg-brand-50 grid place-items-center text-brand-600">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 L9 17 L4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><div class="text-xs font-semibold">In 30 days</div><div class="text-[11px] text-ink-500">Visible posture change</div></div>
+      </div>
+      <div class="absolute -right-4 sm:-right-8 bottom-10 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-3 max-w-[220px]">
+        <div class="h-9 w-9 rounded-full bg-amber-50 grid place-items-center text-amber-500">★</div>
+        <div><div class="text-xs font-semibold">4.8 / 5 average</div><div class="text-[11px] text-ink-500">2,847+ reviews</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Press marquee -->
+<section class="border-y border-ink-100 bg-white py-6 marquee-wrap">
+  <div class="text-center text-xs uppercase tracking-widest text-ink-400 mb-3">As seen in</div>
+  <div class="marquee">
+    <span class="h-display text-2xl font-extrabold text-ink-300">FORBES</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">WIRED</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">MEN'S HEALTH</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">TECHCRUNCH</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">VOGUE</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">GQ</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">BUSINESS INSIDER</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">FORBES</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">WIRED</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">MEN'S HEALTH</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">TECHCRUNCH</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">VOGUE</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">GQ</span>
+    <span class="h-display text-2xl font-extrabold text-ink-300">BUSINESS INSIDER</span>
+  </div>
+</section>
+
+<!-- Value props -->
+<section id="how" class="container-page py-20 sm:py-28">
+  <div class="max-w-2xl mb-14">
+    <span class="chip">How it works</span>
+    <h2 class="h-display text-4xl sm:text-5xl font-extrabold mt-4">The science of standing tall, simplified.</h2>
+    <p class="text-ink-500 mt-4 text-lg">AeroPosture uses gentle motion feedback — the same technique physical therapists use, packed into a featherweight wearable.</p>
+  </div>
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="card hover:shadow-soft hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-50 text-brand-600 grid place-items-center mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1 -2.1 M16.3 7.7l2.1 -2.1"/></svg>
+      </div>
+      <h3 class="h-display font-bold text-lg mb-2">Smart vibration nudge</h3>
+      <p class="text-sm text-ink-500 leading-relaxed">A miniature gyroscope detects slouching and sends a gentle, 1-second pulse — never annoying, just enough to reset.</p>
+    </div>
+    <div class="card hover:shadow-soft hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-50 text-brand-600 grid place-items-center mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2 L4 7 v6 c0 5 3 8 8 9 c5 -1 8 -4 8 -9 V7 Z"/></svg>
+      </div>
+      <h3 class="h-display font-bold text-lg mb-2">Featherweight & invisible</h3>
+      <p class="text-sm text-ink-500 leading-relaxed">1.4 oz, 4 mm thin, made with breathable medical-grade silicone. Disappears under any t-shirt or button-down.</p>
+    </div>
+    <div class="card hover:shadow-soft hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-50 text-brand-600 grid place-items-center mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2 h10 a2 2 0 0 1 2 2 v16 a2 2 0 0 1 -2 2 H7 a2 2 0 0 1 -2 -2 V4 a2 2 0 0 1 2 -2 Z M11 18 h2"/></svg>
+      </div>
+      <h3 class="h-display font-bold text-lg mb-2">Powered by the RYZE app</h3>
+      <p class="text-sm text-ink-500 leading-relaxed">Free iOS &amp; Android app tracks your posture score, daily streaks, and gives a 5-min stretch routine you'll actually do.</p>
+    </div>
+    <div class="card hover:shadow-soft hover:-translate-y-1 transition">
+      <div class="h-11 w-11 rounded-xl bg-brand-50 text-brand-600 grid place-items-center mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 22 c5 -2 8 -6 8 -12 V5 l-8 -3 l-8 3 v5 c0 6 3 10 8 12 Z"/></svg>
+      </div>
+      <h3 class="h-display font-bold text-lg mb-2">60-day guarantee</h3>
+      <p class="text-sm text-ink-500 leading-relaxed">Try it for two months. If you're not standing taller, email us — we'll refund every cent. No "ship it back" hassle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SHOWCASE -->
+<section id="product" class="bg-ink-50 py-20 sm:py-28">
+  <div class="container-page grid gap-12 lg:grid-cols-2 lg:items-start">
+    <div class="space-y-4">
+      <div class="aspect-square rounded-3xl overflow-hidden bg-white shadow-soft">
+        <img id="main-image" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=80&auto=format&fit=crop" alt="AeroPosture" class="h-full w-full object-cover transition-opacity" />
+      </div>
+      <div id="thumbs" class="grid grid-cols-4 gap-3">
+        <button data-idx="0" class="thumb aspect-square rounded-xl overflow-hidden ring-2 ring-ink-900 transition"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" alt="" class="h-full w-full object-cover" /></button>
+        <button data-idx="1" class="thumb aspect-square rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-ink-200 transition"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80" alt="" class="h-full w-full object-cover" /></button>
+        <button data-idx="2" class="thumb aspect-square rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-ink-200 transition"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400&q=80" alt="" class="h-full w-full object-cover" /></button>
+        <button data-idx="3" class="thumb aspect-square rounded-xl overflow-hidden ring-2 ring-transparent hover:ring-ink-200 transition"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="" class="h-full w-full object-cover" /></button>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center gap-2 text-amber-500 mb-3">
+        ★★★★★<span class="text-ink-700 font-semibold ml-1">4.8</span><span class="text-ink-400">·</span>
+        <a href="#reviews" class="text-ink-500 hover:underline">2,847 verified reviews</a>
+      </div>
+      <h2 class="h-display text-4xl sm:text-5xl font-extrabold leading-tight">AeroPosture™ Smart Posture Trainer</h2>
+      <p class="text-ink-500 mt-3 text-lg">A featherweight back trainer that gently vibrates the moment you slouch — retraining your posture in just 15 minutes a day.</p>
+      <div class="mt-6 flex items-baseline gap-3">
+        <span class="text-4xl font-extrabold text-ink-900">$49.99</span>
+        <span class="text-lg text-ink-400 line-through">$89.99</span>
+        <span class="chip bg-amber-100 text-amber-800">Save 44%</span>
+      </div>
+      <p class="text-sm text-ink-500 mt-2">or 4 interest-free payments — finalize at checkout</p>
+      <ul class="mt-6 space-y-2.5">
+        <li class="flex items-start gap-2.5 text-ink-700"><svg class="h-5 w-5 mt-0.5 text-brand-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Smart vibration nudges you the moment you slouch</li>
+        <li class="flex items-start gap-2.5 text-ink-700"><svg class="h-5 w-5 mt-0.5 text-brand-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Featherweight (1.4 oz) — invisible under any shirt</li>
+        <li class="flex items-start gap-2.5 text-ink-700"><svg class="h-5 w-5 mt-0.5 text-brand-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Pairs with the free RYZE app to track your progress</li>
+        <li class="flex items-start gap-2.5 text-ink-700"><svg class="h-5 w-5 mt-0.5 text-brand-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Just 15 minutes a day — feel the difference in 7 days</li>
+        <li class="flex items-start gap-2.5 text-ink-700"><svg class="h-5 w-5 mt-0.5 text-brand-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Loved by 40,000+ desk workers, students &amp; seniors</li>
+      </ul>
+
+      <div class="mt-8">
+        <label class="text-sm font-semibold text-ink-700 mb-3 block">Choose your size</label>
+        <div id="size-selector" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <button data-size="sm" class="size-btn rounded-xl border border-ink-200 bg-white text-ink-700 px-3 py-3 text-sm font-semibold hover:border-ink-400 transition">
+            Small <span class="block text-[10px] font-normal mt-0.5 text-ink-400">26–30"</span>
+          </button>
+          <button data-size="md" data-default class="size-btn rounded-xl border border-ink-900 bg-ink-900 text-white px-3 py-3 text-sm font-semibold transition">
+            Medium <span class="block text-[10px] font-normal mt-0.5 text-white/70">30–36"</span>
+          </button>
+          <button data-size="lg" class="size-btn rounded-xl border border-ink-200 bg-white text-ink-700 px-3 py-3 text-sm font-semibold hover:border-ink-400 transition">
+            Large <span class="block text-[10px] font-normal mt-0.5 text-ink-400">36–42"</span>
+          </button>
+          <button data-size="xl" class="size-btn rounded-xl border border-ink-200 bg-white text-ink-700 px-3 py-3 text-sm font-semibold hover:border-ink-400 transition">
+            X-Large <span class="block text-[10px] font-normal mt-0.5 text-ink-400">42–48"</span>
+          </button>
+        </div>
+      </div>
+
+      <button id="add-to-cart" class="btn btn-accent w-full mt-7 text-base h-14">Add to cart — $49.99</button>
+
+      <div class="mt-4 grid grid-cols-2 gap-3 text-xs text-ink-500">
+        <span class="flex items-center gap-2"><svg class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7 h13 v10 H3 Z M16 10 h4 l1 4 v3 h-5" stroke-linecap="round" stroke-linejoin="round"/></svg>Free worldwide shipping</span>
+        <span class="flex items-center gap-2"><svg class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22 c5 -2 8 -6 8 -12 V5 l-8 -3 l-8 3 v5 c0 6 3 10 8 12 Z" stroke-linejoin="round"/></svg>60-day money-back</span>
+        <span class="flex items-center gap-2"><svg class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11 V7 a5 5 0 0 1 10 0 v4"/></svg>Secure checkout</span>
+        <span class="flex items-center gap-2"><svg class="h-4 w-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 v4 M12 22 v-4 M4.9 4.9 l2.8 2.8 M16.3 16.3 l2.8 2.8 M2 12 h4 M18 12 h4"/></svg>Plastic-free packaging</span>
+      </div>
+
+      <div class="mt-6 rounded-2xl bg-amber-50 border border-amber-100 px-4 py-3 text-sm text-amber-900 flex items-start gap-2">
+        <svg class="h-5 w-5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8 v4 M12 16 h.01" stroke-linecap="round"/></svg>
+        <span><strong>Only 142 left</strong> at launch pricing — restock arrives in ~3 weeks at full price.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 30-day journey -->
+<section class="bg-ink-900 text-white py-20 sm:py-28">
+  <div class="container-page">
+    <div class="max-w-2xl mb-14">
+      <span class="chip bg-white/10 text-white">Your 30-day journey</span>
+      <h2 class="h-display text-4xl sm:text-5xl font-extrabold mt-4 text-white">Tiny daily habit. Lifelong impact.</h2>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+        <div class="h-display text-3xl font-extrabold text-brand-400">01</div>
+        <h3 class="h-display font-bold text-xl mt-3">Wear it for 15 minutes</h3>
+        <p class="text-white/60 mt-2 text-sm leading-relaxed">Slip AeroPosture under your shirt — you barely feel it. Start with a short daily session.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+        <div class="h-display text-3xl font-extrabold text-brand-400">02</div>
+        <h3 class="h-display font-bold text-xl mt-3">Feel the gentle nudge</h3>
+        <p class="text-white/60 mt-2 text-sm leading-relaxed">When you slouch, it sends a soft vibration. Your body learns to correct itself naturally.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+        <div class="h-display text-3xl font-extrabold text-brand-400">03</div>
+        <h3 class="h-display font-bold text-xl mt-3">Track your progress</h3>
+        <p class="text-white/60 mt-2 text-sm leading-relaxed">The free RYZE app shows your daily posture score and a 5-min stretch routine.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-white/10 transition">
+        <div class="h-display text-3xl font-extrabold text-brand-400">04</div>
+        <h3 class="h-display font-bold text-xl mt-3">Stand taller in 30 days</h3>
+        <p class="text-white/60 mt-2 text-sm leading-relaxed">Most customers see a visible difference within a month — and feel it sooner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="container-page py-20 sm:py-28">
+  <div class="grid gap-10 lg:grid-cols-3">
+    <div>
+      <span class="chip">Real reviews</span>
+      <h2 class="h-display text-4xl sm:text-5xl font-extrabold mt-4">People are standing taller.</h2>
+      <div class="mt-6 flex items-baseline gap-3">
+        <span class="text-5xl font-extrabold text-ink-900">4.8</span>
+        <span class="text-amber-500">★★★★★</span>
+      </div>
+      <p class="text-ink-500 mt-1">Based on <strong>2,847</strong> verified reviews</p>
+      <div class="mt-6 space-y-2">
+        <div class="flex items-center gap-3 text-xs"><span class="w-8 text-ink-500">5★</span><div class="flex-1 h-2 rounded-full bg-ink-100 overflow-hidden"><div class="h-full bg-amber-400" style="width:86%"></div></div><span class="w-10 text-right text-ink-400">86%</span></div>
+        <div class="flex items-center gap-3 text-xs"><span class="w-8 text-ink-500">4★</span><div class="flex-1 h-2 rounded-full bg-ink-100 overflow-hidden"><div class="h-full bg-amber-400" style="width:9%"></div></div><span class="w-10 text-right text-ink-400">9%</span></div>
+        <div class="flex items-center gap-3 text-xs"><span class="w-8 text-ink-500">3★</span><div class="flex-1 h-2 rounded-full bg-ink-100 overflow-hidden"><div class="h-full bg-amber-400" style="width:3%"></div></div><span class="w-10 text-right text-ink-400">3%</span></div>
+        <div class="flex items-center gap-3 text-xs"><span class="w-8 text-ink-500">2★</span><div class="flex-1 h-2 rounded-full bg-ink-100 overflow-hidden"><div class="h-full bg-amber-400" style="width:1%"></div></div><span class="w-10 text-right text-ink-400">1%</span></div>
+        <div class="flex items-center gap-3 text-xs"><span class="w-8 text-ink-500">1★</span><div class="flex-1 h-2 rounded-full bg-ink-100 overflow-hidden"><div class="h-full bg-amber-400" style="width:1%"></div></div><span class="w-10 text-right text-ink-400">1%</span></div>
+      </div>
+    </div>
+    <div class="lg:col-span-2 grid gap-5 sm:grid-cols-2">
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★★</span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">Honestly life-changing for my desk job</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">After 3 weeks of wearing this 20 minutes a day my upper-back pain is basically gone. I forget I have it on. Worth every penny.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Maya R.</strong> · Austin, TX</span><span>3 weeks ago</span></div>
+      </article>
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★★</span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">I look 2 inches taller in pictures</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">My wife noticed within 5 days. The vibration reminder is gentle, never annoying. The app is a nice touch.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Daniel K.</strong> · Toronto, CA</span><span>1 month ago</span></div>
+      </article>
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★<span class="text-ink-200">★</span></span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">Solid build quality</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">Took me a couple of days to find the right tightness, once I did it became part of my daily routine. Sizing chart is accurate.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Priya S.</strong> · London, UK</span><span>2 months ago</span></div>
+      </article>
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★★</span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">Bought one for my dad too</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">My father is 67 and his shoulders had started to round. Two months in, he stands noticeably straighter. Customer support was lovely too.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Marcus L.</strong> · Berlin, DE</span><span>2 months ago</span></div>
+      </article>
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★★</span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">Better than the $200 version</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">I had a fancier brand before. This one is honestly more comfortable and the app is way better. Highly recommend.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Hana W.</strong> · Tokyo, JP</span><span>3 months ago</span></div>
+      </article>
+      <article class="card hover:shadow-soft transition">
+        <div class="flex items-center justify-between mb-2"><span class="text-amber-500">★★★★★</span><span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">✓ Verified buyer</span></div>
+        <h3 class="font-semibold text-ink-900 mb-1">Headaches gone</h3>
+        <p class="text-sm text-ink-600 leading-relaxed">I didn't realise my tension headaches were posture-related. Three weeks in, I haven't reached for ibuprofen once.</p>
+        <div class="mt-4 text-xs text-ink-400 flex items-center justify-between"><span><strong class="text-ink-700">Andre V.</strong> · São Paulo, BR</span><span>5 weeks ago</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="container-page py-20 sm:py-28">
+  <div class="max-w-2xl mb-10">
+    <span class="chip">RYZE vs. the rest</span>
+    <h2 class="h-display text-4xl sm:text-5xl font-extrabold mt-4">Why we built AeroPosture.</h2>
+    <p class="text-ink-500 mt-4 text-lg">Most posture braces are stiff, hot, and you can't actually wear them all day. We started from scratch.</p>
+  </div>
+  <div class="overflow-hidden rounded-2xl border border-ink-100">
+    <table class="w-full text-left text-sm">
+      <thead class="bg-ink-50">
+        <tr class="text-ink-500 uppercase text-xs tracking-wider">
+          <th class="py-4 px-5 font-semibold">Feature</th>
+          <th class="py-4 px-5 font-semibold text-ink-900">RYZE AeroPosture</th>
+          <th class="py-4 px-5 font-semibold">Generic posture braces</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-ink-100 bg-white">
+        <tr><td class="py-4 px-5 text-ink-700">Smart vibration reminder</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">Companion app + posture tracking</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">Under 1.5 oz, invisible under shirts</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">Adjustable sensitivity</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">USB-C charging</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5 text-ink-500">Sometimes</td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">60-day money-back guarantee</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+        <tr><td class="py-4 px-5 text-ink-700">Free worldwide shipping</td><td class="py-4 px-5"><svg class="h-5 w-5 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13 L9 17 L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td class="py-4 px-5"><svg class="h-5 w-5 text-ink-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- GUARANTEE CTA -->
+<section class="container-page py-20 sm:py-28">
+  <div class="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-700 text-white px-8 sm:px-14 py-14 sm:py-20 grid gap-10 lg:grid-cols-2 lg:items-center overflow-hidden relative">
+    <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" aria-hidden="true"></div>
+    <div class="absolute -left-10 -bottom-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" aria-hidden="true"></div>
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold mb-5">
+        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22 c5 -2 8 -6 8 -12 V5 l-8 -3 l-8 3 v5 c0 6 3 10 8 12 Z M9 12 l2 2 l4 -4" stroke-linejoin="round" stroke-linecap="round"/></svg>
+        Our 60-day promise
+      </div>
+      <h2 class="h-display text-4xl sm:text-5xl font-extrabold text-white">Try it. Risk-free.<br />For two whole months.</h2>
+      <p class="text-white/80 mt-4 text-lg max-w-md">If you're not standing visibly taller after 60 days of use, just email us. We'll refund you in full — no return shipping, no tricky fine print.</p>
+      <a href="#product" class="btn bg-white text-ink-900 px-7 py-4 mt-8 hover:-translate-y-0.5 hover:shadow-soft text-base inline-flex">Order yours — $49.99</a>
+    </div>
+    <div class="relative grid grid-cols-2 gap-4">
+      <div class="rounded-2xl bg-white/10 backdrop-blur p-5"><div class="h-display text-3xl font-extrabold">40K+</div><div class="text-white/70 text-sm mt-1">Happy customers</div></div>
+      <div class="rounded-2xl bg-white/10 backdrop-blur p-5"><div class="h-display text-3xl font-extrabold">4.8/5</div><div class="text-white/70 text-sm mt-1">Avg. rating</div></div>
+      <div class="rounded-2xl bg-white/10 backdrop-blur p-5"><div class="h-display text-3xl font-extrabold">30 days</div><div class="text-white/70 text-sm mt-1">Visible results</div></div>
+      <div class="rounded-2xl bg-white/10 backdrop-blur p-5"><div class="h-display text-3xl font-extrabold">60 days</div><div class="text-white/70 text-sm mt-1">Refund window</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="container-page py-20 sm:py-28">
+  <div class="grid gap-12 lg:grid-cols-3">
+    <div>
+      <span class="chip">FAQ</span>
+      <h2 class="h-display text-4xl sm:text-5xl font-extrabold mt-4">Questions, answered.</h2>
+      <p class="text-ink-500 mt-4">Still wondering about something? Email us at <a href="mailto:hello@ryze.shop" class="text-ink-900 underline">hello@ryze.shop</a> — we reply within 24 hours.</p>
+    </div>
+    <div class="lg:col-span-2 divide-y divide-ink-100 border-y border-ink-100" id="faq-list">
+      <button class="faq-item open w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">How long until I see results?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">Most customers feel noticeable relief within 7 days and see visible posture improvements after 30 days of consistent use (about 15 minutes per day). Your back didn't round overnight, so we recommend starting with short daily sessions and building from there.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">Is it visible under clothing?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">No. AeroPosture is just 1.4 oz and 4 mm thick — it sits invisibly under any t-shirt or button-down.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">How does the vibration reminder work?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">A miniature gyroscope detects when your shoulders round forward. After a 5-second grace period, you feel a gentle pulse — a quiet nudge to reset. You can adjust sensitivity in the free RYZE app.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">How long does the battery last?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">Up to 14 days of typical use on a single 60-minute charge. It charges via standard USB-C — no proprietary cable.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">What if it doesn't work for me?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">We offer a 60-day money-back guarantee. Try it for two months — if you're not standing taller, email hello@ryze.shop and we'll refund every cent. No "ship it back" hassle.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">How long does shipping take?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">Free standard shipping arrives in 7–14 business days worldwide. Express options (3–5 days) are available at checkout.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+      <button class="faq-item w-full text-left py-5 flex items-start gap-4 group" type="button">
+        <span class="flex-1">
+          <span class="block font-semibold text-ink-900">Is this a medical device?</span>
+          <span class="faq-body block text-ink-500 text-sm leading-relaxed">No. AeroPosture is a posture training aid, not a medical brace. If you have a diagnosed spine condition, please check with your doctor before use.</span>
+        </span>
+        <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-ink-100 mt-24">
+  <div class="container-page py-16 grid gap-12 md:grid-cols-4">
+    <div class="md:col-span-2 space-y-4">
+      <div class="flex items-center gap-2">
+        <svg viewBox="0 0 32 32" class="h-7 w-7"><rect width="32" height="32" rx="8" fill="#1ea679"/><path d="M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="h-display font-extrabold text-xl text-ink-900">RYZE</span>
+      </div>
+      <p class="text-ink-500 max-w-sm">RYZE makes wellness products that help you stand a little taller every day. Designed in California, loved in 40+ countries.</p>
+      <form class="flex max-w-sm gap-2 mt-4" onsubmit="event.preventDefault(); alert('Wire this up to Mailerlite or Brevo to capture emails.');">
+        <input type="email" required placeholder="your@email.com" class="input flex-1" />
+        <button type="submit" class="btn btn-primary text-sm px-5 py-3">Get 10% off</button>
+      </form>
+    </div>
+    <div>
+      <h4 class="font-semibold text-ink-900 mb-4">Shop</h4>
+      <ul class="space-y-2 text-sm text-ink-500">
+        <li><a href="#product" class="hover:text-ink-900">AeroPosture™</a></li>
+        <li><a href="faq.html" class="hover:text-ink-900">FAQ</a></li>
+        <li><a href="policies/shipping.html" class="hover:text-ink-900">Shipping</a></li>
+        <li><a href="policies/refund.html" class="hover:text-ink-900">Returns</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-ink-900 mb-4">Company</h4>
+      <ul class="space-y-2 text-sm text-ink-500">
+        <li><a href="about.html" class="hover:text-ink-900">About</a></li>
+        <li><a href="contact.html" class="hover:text-ink-900">Contact</a></li>
+        <li><a href="policies/privacy.html" class="hover:text-ink-900">Privacy</a></li>
+        <li><a href="policies/terms.html" class="hover:text-ink-900">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-ink-100">
+    <div class="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-500">
+      <p>© <span id="year"></span> RYZE Co. All rights reserved.</p>
+      <div class="flex items-center gap-3">
+        <span>We accept</span>
+        <span class="flex gap-1.5 opacity-70">
+          <span class="rounded border border-ink-200 px-2 py-0.5 text-[10px] font-bold tracking-wider text-ink-600">VISA</span>
+          <span class="rounded border border-ink-200 px-2 py-0.5 text-[10px] font-bold tracking-wider text-ink-600">MC</span>
+          <span class="rounded border border-ink-200 px-2 py-0.5 text-[10px] font-bold tracking-wider text-ink-600">AMEX</span>
+          <span class="rounded border border-ink-200 px-2 py-0.5 text-[10px] font-bold tracking-wider text-ink-600">PAYPAL</span>
+          <span class="rounded border border-ink-200 px-2 py-0.5 text-[10px] font-bold tracking-wider text-ink-600">SHOP</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div id="drawer-backdrop" class="drawer-backdrop fixed inset-0 bg-ink-900/40 backdrop-blur-sm z-50 opacity-0 pointer-events-none"></div>
+<aside id="drawer" class="drawer closed fixed top-0 right-0 h-full w-full sm:max-w-md bg-white z-50 shadow-2xl flex flex-col" role="dialog" aria-label="Cart">
+  <header class="flex items-center justify-between px-6 py-5 border-b border-ink-100">
+    <h2 class="h-display font-bold text-xl">Your cart</h2>
+    <button id="close-drawer" class="h-9 w-9 rounded-full grid place-items-center hover:bg-ink-100" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6 L18 18 M6 18 L18 6" stroke-linecap="round"/></svg>
+    </button>
+  </header>
+  <div id="cart-body" class="flex-1 overflow-y-auto px-6 py-5"></div>
+  <footer id="cart-footer" class="hidden border-t border-ink-100 px-6 py-5 space-y-4">
+    <div class="flex items-center justify-between text-sm text-ink-500"><span>Subtotal</span><span id="cart-subtotal" class="font-semibold text-ink-900 text-base">$0.00</span></div>
+    <div class="flex items-center justify-between text-xs text-ink-400"><span>Shipping</span><span>FREE worldwide</span></div>
+    <a href="checkout.html" class="btn btn-accent w-full text-base h-14">Checkout securely →</a>
+    <p class="text-[11px] text-ink-400 text-center">60-day money-back guarantee · Encrypted checkout</p>
+  </footer>
+</aside>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- CART (localStorage)
+  const PRODUCT = {
+    id: 'aeroposture-v2', name: 'AeroPosture™ Smart Posture Trainer', price: 49.99,
+    image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80',
+    sizes: { sm: 'Small (26–30")', md: 'Medium (30–36")', lg: 'Large (36–42")', xl: 'X-Large (42–48")' }
+  };
+  const cart = {
+    items: JSON.parse(localStorage.getItem('ryze-cart') || '[]'),
+    save() { localStorage.setItem('ryze-cart', JSON.stringify(this.items)); render(); },
+    add(size) {
+      const existing = this.items.find(i => i.size === size);
+      if (existing) existing.qty++;
+      else this.items.push({ ...PRODUCT, size, qty: 1 });
+      this.save(); openDrawer();
+    },
+    setQty(idx, qty) { this.items[idx].qty = Math.max(1, qty); this.save(); },
+    remove(idx) { this.items.splice(idx, 1); this.save(); }
+  };
+  function render() {
+    const count = cart.items.reduce((s, i) => s + i.qty, 0);
+    const subtotal = cart.items.reduce((s, i) => s + i.qty * i.price, 0);
+    const cnt = document.getElementById('cart-count');
+    if (count > 0) { cnt.textContent = count; cnt.classList.remove('hidden'); }
+    else cnt.classList.add('hidden');
+    const body = document.getElementById('cart-body');
+    const footer = document.getElementById('cart-footer');
+    if (cart.items.length === 0) {
+      body.innerHTML = '<div class="text-center py-16"><div class="text-4xl mb-3">🛒</div><p class="font-semibold text-ink-900">Your cart is empty</p><p class="text-sm text-ink-500 mt-1">Add AeroPosture and start standing taller.</p><button onclick="closeDrawer()" class="btn btn-primary mt-6">Browse products</button></div>';
+      footer.classList.add('hidden');
+    } else {
+      body.innerHTML = '<ul class="space-y-5">' + cart.items.map((it, i) => `
+        <li class="flex gap-4">
+          <div class="h-20 w-20 rounded-xl overflow-hidden bg-ink-100 flex-shrink-0"><img src="${it.image}" alt="" class="h-full w-full object-cover"/></div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold text-ink-900 clamp-2">${it.name}</p>
+            <p class="text-xs text-ink-500 mt-0.5">${PRODUCT.sizes[it.size] || it.size}</p>
+            <div class="flex items-center justify-between mt-3">
+              <div class="inline-flex items-center rounded-full border border-ink-200">
+                <button onclick="cart.setQty(${i}, ${it.qty - 1})" class="h-8 w-8 grid place-items-center hover:bg-ink-50 rounded-l-full">−</button>
+                <span class="px-3 text-sm font-semibold tabular-nums">${it.qty}</span>
+                <button onclick="cart.setQty(${i}, ${it.qty + 1})" class="h-8 w-8 grid place-items-center hover:bg-ink-50 rounded-r-full">+</button>
+              </div>
+              <span class="font-semibold tabular-nums">$${(it.price * it.qty).toFixed(2)}</span>
+            </div>
+          </div>
+          <button onclick="cart.remove(${i})" class="text-xs text-ink-400 hover:text-ink-700 self-start">Remove</button>
+        </li>`).join('') + '</ul>';
+      document.getElementById('cart-subtotal').textContent = '$' + subtotal.toFixed(2);
+      footer.classList.remove('hidden');
+    }
+  }
+  function openDrawer() {
+    document.getElementById('drawer').classList.replace('closed', 'open');
+    const bd = document.getElementById('drawer-backdrop');
+    bd.classList.remove('pointer-events-none'); bd.style.opacity = '1';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    document.getElementById('drawer').classList.replace('open', 'closed');
+    const bd = document.getElementById('drawer-backdrop');
+    bd.style.opacity = '0';
+    setTimeout(() => bd.classList.add('pointer-events-none'), 250);
+    document.body.style.overflow = '';
+  }
+  document.getElementById('cart-btn').addEventListener('click', openDrawer);
+  document.getElementById('close-drawer').addEventListener('click', closeDrawer);
+  document.getElementById('drawer-backdrop').addEventListener('click', closeDrawer);
+
+  // ---- Size selector
+  let currentSize = 'md';
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-btn').forEach(b => {
+        b.classList.remove('border-ink-900', 'bg-ink-900', 'text-white');
+        b.classList.add('border-ink-200', 'bg-white', 'text-ink-700', 'hover:border-ink-400');
+        b.querySelector('span').classList.remove('text-white/70');
+        b.querySelector('span').classList.add('text-ink-400');
+      });
+      btn.classList.add('border-ink-900', 'bg-ink-900', 'text-white');
+      btn.classList.remove('border-ink-200', 'bg-white', 'text-ink-700', 'hover:border-ink-400');
+      btn.querySelector('span').classList.add('text-white/70');
+      btn.querySelector('span').classList.remove('text-ink-400');
+      currentSize = btn.dataset.size;
+    });
+  });
+  document.getElementById('add-to-cart').addEventListener('click', () => cart.add(currentSize));
+
+  // ---- Image gallery
+  const imgs = [
+    'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1200&q=80',
+    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80',
+    'https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1200&q=80',
+    'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=80'
+  ];
+  document.querySelectorAll('#thumbs .thumb').forEach(b => {
+    b.addEventListener('click', () => {
+      const i = +b.dataset.idx;
+      document.getElementById('main-image').src = imgs[i];
+      document.querySelectorAll('#thumbs .thumb').forEach(x => x.classList.replace('ring-ink-900', 'ring-transparent'));
+      b.classList.replace('ring-transparent', 'ring-ink-900');
+    });
+  });
+
+  // ---- FAQ accordion
+  document.querySelectorAll('#faq-list .faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('#faq-list .faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+
+  render();
+</script>
+</body>
+</html>

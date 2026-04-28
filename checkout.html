@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checkout — RYZE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231ea679'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme:{ extend:{ colors:{ ink:{50:'#f6f7f9',100:'#eceef2',200:'#d5dae3',300:'#aab3c4',400:'#7a8499',500:'#566077',600:'#3d4659',700:'#2b3142',800:'#1a1e2c',900:'#0c0f17'}, brand:{50:'#eefcf6',500:'#1ea679',600:'#118661'} }, fontFamily:{ sans:['Inter','system-ui','sans-serif'], display:['"Plus Jakarta Sans"','Inter','sans-serif'] } } } }
+</script>
+<style>
+  body { font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .h-display { font-family:'Plus Jakarta Sans',Inter,sans-serif; letter-spacing:-0.02em; }
+  .container-page { max-width:80rem; margin:0 auto; padding:0 1.25rem; }
+  @media (min-width:640px){ .container-page{ padding:0 2rem; } }
+  .input { width:100%; border-radius:.75rem; border:1px solid #d5dae3; background:#fff; padding:.75rem 1rem; font-size:.95rem; transition:all .2s; }
+  .input:focus { outline:none; border-color:#1ea679; box-shadow:0 0 0 4px rgba(30,166,121,.15); }
+  .btn-accent { background:#1ea679; color:#fff; padding:.875rem 1.5rem; border-radius:9999px; font-weight:600; transition:all .2s; }
+  .btn-accent:hover { background:#118661; transform:translateY(-2px); }
+  .clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+</style>
+</head>
+<body class="bg-white text-ink-900">
+
+<header class="border-b border-ink-100">
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg viewBox="0 0 32 32" class="h-7 w-7"><defs><linearGradient id="g" x1="0" x2="1" y1="1" y2="0"><stop offset="0%" stop-color="#0c0f17"/><stop offset="100%" stop-color="#1ea679"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="h-display font-extrabold text-xl">RYZE</span>
+    </a>
+    <p class="text-xs text-ink-500 flex items-center gap-1.5">
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11 V7 a5 5 0 0 1 10 0 v4"/></svg>
+      Secure checkout
+    </p>
+  </div>
+</header>
+
+<section class="container-page py-10 lg:py-14">
+  <div class="grid gap-10 lg:grid-cols-5">
+    <form id="form" class="lg:col-span-3 space-y-8">
+      <header>
+        <a href="index.html" class="text-sm text-ink-500 hover:text-ink-900">← Continue shopping</a>
+        <h1 class="h-display text-3xl sm:text-4xl font-extrabold mt-2">Checkout</h1>
+        <p class="text-ink-500 mt-1">You're moments away from standing taller. We'll send your order confirmation by email.</p>
+      </header>
+
+      <fieldset class="space-y-4">
+        <legend class="font-semibold text-ink-900 mb-2">Contact</legend>
+        <input required type="email" placeholder="Email address" class="input" />
+        <label class="flex items-center gap-2 text-sm text-ink-500"><input type="checkbox" /> Email me with news and offers</label>
+      </fieldset>
+
+      <fieldset class="space-y-4">
+        <legend class="font-semibold text-ink-900 mb-2">Shipping address</legend>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <input required placeholder="First name" class="input" />
+          <input required placeholder="Last name" class="input" />
+        </div>
+        <input required placeholder="Address" class="input" />
+        <input placeholder="Apartment, suite, etc. (optional)" class="input" />
+        <div class="grid gap-3 sm:grid-cols-3">
+          <input required placeholder="City" class="input" />
+          <input required placeholder="State / Province" class="input" />
+          <input required placeholder="ZIP / Postal" class="input" />
+        </div>
+        <select required class="input">
+          <option value="US">United States</option><option value="CA">Canada</option>
+          <option value="GB">United Kingdom</option><option value="AU">Australia</option>
+          <option value="IN">India</option><option value="DE">Germany</option>
+          <option value="FR">France</option><option value="JP">Japan</option><option value="BR">Brazil</option>
+        </select>
+        <input required placeholder="Phone (for delivery updates)" class="input" />
+      </fieldset>
+
+      <fieldset class="space-y-3">
+        <legend class="font-semibold text-ink-900 mb-2">Shipping method</legend>
+        <label class="flex items-center justify-between rounded-xl border border-brand-500 bg-brand-50 p-4 cursor-pointer">
+          <span class="flex items-center gap-3"><input type="radio" name="ship" checked /> <span><strong>Free Standard</strong> · 7–14 business days</span></span>
+          <span class="font-semibold">FREE</span>
+        </label>
+        <label class="flex items-center justify-between rounded-xl border border-ink-200 p-4 cursor-pointer">
+          <span class="flex items-center gap-3"><input type="radio" name="ship" /> <span><strong>Express</strong> · 3–5 business days</span></span>
+          <span class="font-semibold">$9.99</span>
+        </label>
+      </fieldset>
+
+      <fieldset class="space-y-3">
+        <legend class="font-semibold text-ink-900 mb-2">Payment</legend>
+        <div class="rounded-xl border border-dashed border-ink-300 p-6 text-center bg-ink-50">
+          <div class="text-3xl">🔒</div>
+          <p class="font-semibold mt-2">Payment provider not connected</p>
+          <p class="text-sm text-ink-500 mt-1 max-w-md mx-auto">Wire up Stripe, PayPal, or Razorpay later — replace the form's submit handler in <code class="bg-white px-1.5 py-0.5 rounded mx-1 text-xs">checkout.html</code> with the call to your provider. The full order data is collected above.</p>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn-accent w-full text-base h-14">Place order — <span id="form-total">$0.00</span></button>
+      <p class="text-[11px] text-ink-400 text-center">By placing this order you agree to RYZE's <a href="policies/terms.html" class="underline">Terms</a> and <a href="policies/privacy.html" class="underline">Privacy Policy</a>.</p>
+    </form>
+
+    <aside class="lg:col-span-2">
+      <div class="rounded-2xl border border-ink-100 p-6 sticky top-8">
+        <h2 class="h-display font-bold text-lg mb-4">Order summary</h2>
+        <div id="summary"></div>
+      </div>
+      <div class="text-xs text-ink-400 mt-4 text-center">🔒 Encrypted checkout · 60-day money-back · Cancel any time before shipping</div>
+    </aside>
+  </div>
+</section>
+
+<script>
+  const cartItems = JSON.parse(localStorage.getItem('ryze-cart') || '[]');
+  const SIZE = { sm:'Small (26–30")', md:'Medium (30–36")', lg:'Large (36–42")', xl:'X-Large (42–48")' };
+  const sub = cartItems.reduce((s, i) => s + i.qty * i.price, 0);
+  document.getElementById('form-total').textContent = '$' + sub.toFixed(2);
+  const summary = document.getElementById('summary');
+  if (cartItems.length === 0) {
+    summary.innerHTML = '<p class="text-sm text-ink-500">Your cart is empty. <a href="index.html#product" class="underline">Add a product</a> to continue.</p>';
+  } else {
+    summary.innerHTML = '<ul class="space-y-4 mb-5">' + cartItems.map(it => `
+      <li class="flex gap-3">
+        <div class="relative h-16 w-16 rounded-lg overflow-hidden bg-ink-100 flex-shrink-0">
+          <img src="${it.image}" alt="" class="h-full w-full object-cover" />
+          <span class="absolute -top-1 -right-1 bg-ink-900 text-white text-[10px] h-5 w-5 grid place-items-center rounded-full">${it.qty}</span>
+        </div>
+        <div class="flex-1 text-sm">
+          <p class="font-semibold clamp-2">${it.name}</p>
+          <p class="text-xs text-ink-500">${SIZE[it.size] || it.size}</p>
+        </div>
+        <span class="text-sm font-semibold">$${(it.price * it.qty).toFixed(2)}</span>
+      </li>`).join('') + `</ul>
+      <div class="pt-4 border-t border-ink-100 space-y-2 text-sm">
+        <div class="flex justify-between"><span class="text-ink-500">Subtotal</span><span class="font-semibold">$${sub.toFixed(2)}</span></div>
+        <div class="flex justify-between"><span class="text-ink-500">Shipping</span><span>FREE</span></div>
+        <div class="flex justify-between"><span class="text-ink-500">Taxes</span><span>Calculated at next step</span></div>
+        <div class="flex justify-between pt-3 border-t border-ink-100 text-base"><span class="font-semibold">Total</span><span class="font-extrabold">$${sub.toFixed(2)}</span></div>
+      </div>`;
+  }
+  document.getElementById('form').addEventListener('submit', e => {
+    e.preventDefault();
+    alert("Payment integration not connected yet.\\n\\nWhen you wire up Stripe / PayPal / Razorpay, replace the form's onsubmit handler in checkout.html with your provider's checkout call. The form has already collected the customer's contact + shipping info.");
+  });
+</script>
+</body>
+</html>

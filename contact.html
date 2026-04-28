@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — RYZE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231ea679'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme:{ extend:{ colors:{ ink:{50:'#f6f7f9',100:'#eceef2',200:'#d5dae3',300:'#aab3c4',400:'#7a8499',500:'#566077',600:'#3d4659',700:'#2b3142',800:'#1a1e2c',900:'#0c0f17'}, brand:{50:'#eefcf6',500:'#1ea679',600:'#118661',700:'#0f6a4f'} }, fontFamily:{ sans:['Inter','system-ui','sans-serif'], display:['"Plus Jakarta Sans"','Inter','sans-serif'] } } } }
+</script>
+<style>
+  body { font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .h-display { font-family:'Plus Jakarta Sans',Inter,sans-serif; letter-spacing:-0.02em; }
+  .container-page { max-width:80rem; margin:0 auto; padding:0 1.25rem; }
+  @media (min-width:640px){ .container-page{ padding:0 2rem; } }
+  .chip { display:inline-flex; align-items:center; gap:.375rem; border-radius:9999px; background:#eefcf6; color:#0f6a4f; padding:.25rem .75rem; font-size:.75rem; font-weight:600; }
+  .btn-ghost { padding:.75rem 1.25rem; color:#2b3142; border-radius:9999px; }
+  .btn-ghost:hover { background:#eceef2; }
+  .btn-accent { background:#1ea679; color:#fff; padding:.875rem 1.5rem; border-radius:9999px; font-weight:600; transition:all .2s; }
+  .btn-accent:hover { background:#118661; transform:translateY(-2px); }
+  .card { border-radius:1rem; border:1px solid #eceef2; background:#fff; padding:1.5rem; }
+  .input { width:100%; border-radius:.75rem; border:1px solid #d5dae3; background:#fff; padding:.75rem 1rem; font-size:.95rem; transition:all .2s; }
+  .input:focus { outline:none; border-color:#1ea679; box-shadow:0 0 0 4px rgba(30,166,121,.15); }
+</style>
+</head>
+<body class="bg-white text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-ink-100">
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg viewBox="0 0 32 32" class="h-7 w-7"><defs><linearGradient id="g" x1="0" x2="1" y1="1" y2="0"><stop offset="0%" stop-color="#0c0f17"/><stop offset="100%" stop-color="#1ea679"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="h-display font-extrabold text-xl">RYZE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-700">
+      <a href="index.html#product" class="hover:text-ink-900">Shop</a>
+      <a href="about.html" class="hover:text-ink-900">About</a>
+      <a href="faq.html" class="hover:text-ink-900">FAQ</a>
+      <a href="contact.html" class="text-ink-900">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="container-page py-16 lg:py-24 grid gap-14 lg:grid-cols-2">
+  <div>
+    <span class="chip">Contact</span>
+    <h1 class="h-display text-4xl sm:text-5xl font-extrabold mt-4">We're humans, not bots.</h1>
+    <p class="text-ink-500 text-lg mt-4">Drop a message — we read every single one and reply within 24 hours, every day.</p>
+
+    <div class="mt-8 space-y-4 text-sm">
+      <p class="flex items-start gap-3">
+        <span class="h-9 w-9 rounded-xl bg-brand-50 grid place-items-center text-brand-600">@</span>
+        <span><strong class="block">Email</strong><a href="mailto:hello@ryze.shop" class="text-ink-600 underline">hello@ryze.shop</a></span>
+      </p>
+      <p class="flex items-start gap-3">
+        <span class="h-9 w-9 rounded-xl bg-brand-50 grid place-items-center text-brand-600">⏱</span>
+        <span><strong class="block">Reply time</strong><span class="text-ink-600">Within 24 hours, 7 days a week</span></span>
+      </p>
+      <p class="flex items-start gap-3">
+        <span class="h-9 w-9 rounded-xl bg-brand-50 grid place-items-center text-brand-600">✦</span>
+        <span><strong class="block">Support hours</strong><span class="text-ink-600">Mon–Fri, 9am–6pm PT</span></span>
+      </p>
+    </div>
+  </div>
+
+  <form id="form" class="card space-y-4">
+    <div id="success" class="hidden text-center py-12">
+      <div class="text-4xl mb-3">✓</div>
+      <h3 class="h-display font-bold text-2xl">Message received</h3>
+      <p class="text-ink-500 mt-2">We'll get back to you within 24 hours.</p>
+    </div>
+    <div id="form-fields">
+      <h3 class="h-display font-bold text-xl mb-1">Send a message</h3>
+      <p class="text-sm text-ink-500 mb-4">Tip: connect this to a free service like <a class="underline" href="https://web3forms.com" target="_blank" rel="noreferrer">Web3Forms</a> to get submissions in your inbox.</p>
+      <input required placeholder="Your name" class="input mb-3" />
+      <input required type="email" placeholder="Email address" class="input mb-3" />
+      <input placeholder="Order # (if applicable)" class="input mb-3" />
+      <textarea required placeholder="How can we help?" rows="5" class="input mb-3"></textarea>
+      <button type="submit" class="btn-accent w-full">Send message</button>
+    </div>
+  </form>
+</section>
+
+<footer class="border-t border-ink-100">
+  <div class="container-page py-8 text-xs text-ink-500 text-center">
+    © <span id="y"></span> RYZE Co. · <a href="policies/privacy.html" class="hover:underline">Privacy</a> · <a href="policies/terms.html" class="hover:underline">Terms</a> · <a href="policies/refund.html" class="hover:underline">Refunds</a> · <a href="policies/shipping.html" class="hover:underline">Shipping</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.getElementById('form').addEventListener('submit', e => {
+    e.preventDefault();
+    document.getElementById('form-fields').classList.add('hidden');
+    document.getElementById('success').classList.remove('hidden');
+  });
+</script>
+</body>
+</html>

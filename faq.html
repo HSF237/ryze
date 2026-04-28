@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ — RYZE</title>
+<meta name="description" content="Answers to the questions we get most about AeroPosture and RYZE." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231ea679'/></svg>" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { ink:{50:'#f6f7f9',100:'#eceef2',200:'#d5dae3',300:'#aab3c4',400:'#7a8499',500:'#566077',600:'#3d4659',700:'#2b3142',800:'#1a1e2c',900:'#0c0f17'}, brand:{50:'#eefcf6',100:'#d5f7e8',500:'#1ea679',600:'#118661',700:'#0f6a4f'} }, fontFamily:{ sans:['Inter','system-ui','sans-serif'], display:['"Plus Jakarta Sans"','Inter','sans-serif'] } } } }
+</script>
+<style>
+  body { font-family:'Inter',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .h-display { font-family:'Plus Jakarta Sans',Inter,sans-serif; letter-spacing:-0.02em; }
+  .container-page { max-width:80rem; margin:0 auto; padding:0 1.25rem; }
+  @media (min-width:640px){ .container-page{ padding:0 2rem; } }
+  .chip { display:inline-flex; align-items:center; gap:.375rem; border-radius:9999px; background:#eefcf6; color:#0f6a4f; padding:.25rem .75rem; font-size:.75rem; font-weight:600; }
+  .btn-ghost { padding:.75rem 1.25rem; color:#2b3142; border-radius:9999px; }
+  .btn-ghost:hover { background:#eceef2; }
+  .mesh { background-image: radial-gradient(60% 50% at 80% 0%, rgba(30,166,121,.18) 0%, rgba(30,166,121,0) 60%), radial-gradient(50% 40% at 0% 100%, rgba(66,194,148,.18) 0%, rgba(66,194,148,0) 60%), linear-gradient(180deg,#fff 0%,#f6f7f9 100%); }
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height .3s, margin-top .3s; }
+  .faq-item.open .faq-body { max-height: 320px; margin-top: .75rem; }
+  .faq-item.open .faq-plus { transform: rotate(45deg); }
+  .faq-plus { transition: transform .2s; }
+</style>
+</head>
+<body class="bg-white text-ink-900">
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-ink-100">
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg viewBox="0 0 32 32" class="h-7 w-7"><defs><linearGradient id="g" x1="0" x2="1" y1="1" y2="0"><stop offset="0%" stop-color="#0c0f17"/><stop offset="100%" stop-color="#1ea679"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M9 22 L9 10 H15 a4 4 0 0 1 0 8 H12 L18 22 M22 22 V14 L26 18 V22" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="h-display font-extrabold text-xl">RYZE</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-700">
+      <a href="index.html#product" class="hover:text-ink-900">Shop</a>
+      <a href="about.html" class="hover:text-ink-900">About</a>
+      <a href="faq.html" class="text-ink-900">FAQ</a>
+    </nav>
+    <a href="contact.html" class="btn-ghost">Help</a>
+  </div>
+</header>
+
+<section class="mesh">
+  <div class="container-page py-16 lg:py-24 max-w-3xl">
+    <span class="chip">FAQ</span>
+    <h1 class="h-display text-4xl sm:text-6xl font-extrabold mt-4 leading-tight">Questions, answered.</h1>
+    <p class="text-ink-500 text-lg mt-4">Can't find what you're looking for? <a href="mailto:hello@ryze.shop" class="underline text-ink-900">hello@ryze.shop</a> — we reply within 24 hours.</p>
+  </div>
+</section>
+
+<section class="container-page py-12 sm:py-16 max-w-3xl" id="faq-list">
+  <button class="faq-item open w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">How long until I see results?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">Most customers feel noticeable relief within 7 days and see visible posture improvements after 30 days of consistent use (about 15 minutes per day). Your back didn't round overnight, so we recommend starting with short daily sessions and building from there.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">Is it visible under clothing?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">No. AeroPosture is just 1.4 oz and 4 mm thick — it sits invisibly under any t-shirt or button-down.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">How does the vibration reminder work?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">A miniature gyroscope detects when your shoulders round forward. After a 5-second grace period, you feel a gentle pulse — a quiet nudge to reset. You can adjust sensitivity in the free RYZE app.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">How long does the battery last?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">Up to 14 days of typical use on a single 60-minute charge. It charges via standard USB-C — no proprietary cable.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">What if it doesn't work for me?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">We offer a 60-day money-back guarantee. Try it for two months — if you're not standing taller, email hello@ryze.shop and we'll refund every cent.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">How long does shipping take?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">Free standard shipping arrives in 7–14 business days worldwide. Express options (3–5 days) are available at checkout.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+  <button class="faq-item w-full text-left py-5 flex items-start gap-4 border-b border-ink-100">
+    <span class="flex-1">
+      <span class="block font-semibold text-ink-900">Is this a medical device?</span>
+      <span class="faq-body block text-ink-500 text-sm leading-relaxed">No. AeroPosture is a posture training aid, not a medical brace. If you have a diagnosed spine condition, please check with your doctor before use.</span>
+    </span>
+    <span class="faq-plus mt-1 h-7 w-7 rounded-full grid place-items-center bg-ink-50 text-ink-700">+</span>
+  </button>
+</section>
+
+<footer class="border-t border-ink-100">
+  <div class="container-page py-8 text-xs text-ink-500 text-center">
+    © <span id="y"></span> RYZE Co. · <a href="policies/privacy.html" class="hover:underline">Privacy</a> · <a href="policies/terms.html" class="hover:underline">Terms</a> · <a href="policies/refund.html" class="hover:underline">Refunds</a> · <a href="policies/shipping.html" class="hover:underline">Shipping</a>
+  </div>
+</footer>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('#faq-list .faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('#faq-list .faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
