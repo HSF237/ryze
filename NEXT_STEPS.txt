@@ -1,5 +1,12 @@
 🚀 NEXT STEPS TO FIX BUILD & GO LIVE
 
+0. DELETE NESTED FOLDER (CRITICAL - FIXES npm ERROR)
+   → Go to: C:\Users\HI\Desktop\MY CODESPACE\RYZE
+   → Find the folder named "ryze" (inside RYZE folder)
+   → Right-click it → Delete (or run CLEANUP_NESTED_FOLDER.bat)
+   → This folder has an old package.json causing npm install to fail
+   ⚠️  DO THIS FIRST or npm install will fail!
+
 1. INSTALL DEPENDENCIES
    → Open Command Prompt
    → Run: cd C:\Users\HI\Desktop\MY CODESPACE\RYZE
