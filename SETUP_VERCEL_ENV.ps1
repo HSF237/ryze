@@ -17,19 +17,19 @@ Write-Host ""
 Write-Host "Vercel CLI ready" -ForegroundColor Green
 Write-Host ""
 
-# Define all environment variables
+# Define all environment variables (ADD YOUR KEYS HERE - DO NOT COMMIT WITH REAL SECRETS)
 $envVars = @(
-    @{Name="NEXT_PUBLIC_FIREBASE_API_KEY"; Value="AIzaSyDNDH7DSSodvoDMi3e0-G-TQFBZf1uybdE"},
-    @{Name="NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN"; Value="ryze-99b9a.firebaseapp.com"},
-    @{Name="NEXT_PUBLIC_FIREBASE_PROJECT_ID"; Value="ryze-99b9a"},
-    @{Name="NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET"; Value="ryze-99b9a.appspot.com"},
-    @{Name="NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID"; Value="375283178373"},
-    @{Name="NEXT_PUBLIC_FIREBASE_APP_ID"; Value="1:375283178373:web:d16572792a0f9c4e442ec"},
-    @{Name="NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"; Value="pk_test_51TR2IhA6PN3p0v5S7RTIru2lk-hwmgcdp5uC16xLkSGLodXi~b8j4tZ0m7f1XwMTYRcL8TQxMdezZJp5nsz7bXlp2082XQb4QX3"},
-    @{Name="STRIPE_SECRET_KEY"; Value="sk_test_51TR2IhA6PN3p0v5HEPQS2T3Ll1pTXpe6M6FRdueIJkHFjnMpvh7KrpBGCEzVJaKRFC0Jtxlmf5Du8hA5HhHAb0e04mZOp"},
-    @{Name="RESEND_API_KEY"; Value="re_46rkwnew_C9nSk8vjL4jCcGSwBSPA4Uqf"},
-    @{Name="ADMIN_PASSWORD"; Value="admin123"},
-    @{Name="NEXT_PUBLIC_APP_URL"; Value="https://ryze.vercel.app"}
+    @{Name="NEXT_PUBLIC_FIREBASE_API_KEY"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_FIREBASE_PROJECT_ID"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_FIREBASE_APP_ID"; Value="YOUR_KEY_HERE"},
+    @{Name="NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY"; Value="YOUR_KEY_HERE"},
+    @{Name="STRIPE_SECRET_KEY"; Value="YOUR_KEY_HERE"},
+    @{Name="RESEND_API_KEY"; Value="YOUR_KEY_HERE"},
+    @{Name="ADMIN_PASSWORD"; Value="YOUR_PASSWORD_HERE"},
+    @{Name="NEXT_PUBLIC_APP_URL"; Value="YOUR_URL_HERE"}
 )
 
 # Navigate to RYZE folder
