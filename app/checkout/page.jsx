@@ -128,29 +128,29 @@ function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-8">
+    <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-6 sm:space-y-8">
       <header>
-        <Link href="/" className="text-sm text-ink-500 hover:text-ink-900">← Continue shopping</Link>
-        <h1 className="h-display text-3xl sm:text-4xl font-extrabold mt-2">Checkout</h1>
-        <p className="text-ink-500 mt-1">
-          You&apos;re moments away from standing taller. We&apos;ll send your order confirmation by email.
+        <Link href="/" className="text-xs sm:text-sm text-ink-500 hover:text-ink-900">← Continue shopping</Link>
+        <h1 className="h-display text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-2">Checkout</h1>
+        <p className="text-ink-500 mt-1 text-sm sm:text-base">
+          You&apos;re moments away from standing taller. Check your email for confirmation.
         </p>
       </header>
 
       {errorMessage && (
-        <div className="rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-800">
+        <div className="rounded-lg bg-red-50 border border-red-200 p-3 sm:p-4 text-xs sm:text-sm text-red-800">
           {errorMessage}
         </div>
       )}
 
       {successMessage && (
-        <div className="rounded-lg bg-green-50 border border-green-200 p-4 text-sm text-green-800">
+        <div className="rounded-lg bg-green-50 border border-green-200 p-3 sm:p-4 text-xs sm:text-sm text-green-800">
           {successMessage}
         </div>
       )}
 
-      <fieldset className="space-y-4">
-        <legend className="font-semibold text-ink-900 mb-2">Contact</legend>
+      <fieldset className="space-y-3">
+        <legend className="text-sm font-semibold text-ink-900">Contact</legend>
         <input
           required
           type="email"
@@ -162,9 +162,9 @@ function CheckoutForm() {
         />
       </fieldset>
 
-      <fieldset className="space-y-4">
-        <legend className="font-semibold text-ink-900 mb-2">Shipping address</legend>
-        <div className="grid gap-3 sm:grid-cols-2">
+      <fieldset className="space-y-3">
+        <legend className="text-sm font-semibold text-ink-900">Shipping address</legend>
+        <div className="grid gap-2 sm:grid-cols-2">
           <input
             required
             name="firstName"
@@ -197,7 +197,7 @@ function CheckoutForm() {
           onChange={handleInputChange}
           className="input"
         />
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-2 sm:grid-cols-3">
           <input
             required
             name="city"
@@ -250,14 +250,14 @@ function CheckoutForm() {
         />
       </fieldset>
 
-      <fieldset className="space-y-3">
-        <legend className="font-semibold text-ink-900 mb-2">Payment</legend>
-        <div className="rounded-xl border border-ink-200 p-4 bg-white">
+      <fieldset className="space-y-2">
+        <legend className="text-sm font-semibold text-ink-900">Payment</legend>
+        <div className="rounded-lg sm:rounded-xl border border-ink-200 p-3 sm:p-4 bg-white">
           <CardElement
             options={{
               style: {
                 base: {
-                  fontSize: '16px',
+                  fontSize: '14px',
                   color: '#424770',
                   '::placeholder': {
                     color: '#9ca3af',
@@ -270,23 +270,23 @@ function CheckoutForm() {
             }}
           />
         </div>
-        <p className="text-xs text-ink-400">
-          🔒 Your payment is encrypted and secure. We accept Visa, Mastercard, American Express.
+        <p className="text-[10px] sm:text-xs text-ink-400">
+          🔒 Encrypted · Visa, Mastercard, Amex accepted
         </p>
       </fieldset>
 
       <button
         type="submit"
         disabled={isLoading}
-        className="btn-accent w-full text-base h-14 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-accent w-full text-base h-12 sm:h-14 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? 'Processing...' : `Place order — $${total.toFixed(2)}`}
       </button>
-      <p className="text-[11px] text-ink-400 text-center">
+      <p className="text-[10px] sm:text-[11px] text-ink-400 text-center">
         By placing this order you agree to RYZE&apos;s
         <Link href="/policies/terms" className="underline mx-1">Terms</Link>
         and
-        <Link href="/policies/privacy" className="underline ml-1">Privacy Policy</Link>.
+        <Link href="/policies/privacy" className="underline ml-1">Privacy</Link>.
       </p>
     </form>
   );
@@ -300,57 +300,57 @@ export default function CheckoutPage() {
 
   return (
     <Elements stripe={stripePromise}>
-      <section className="container-page py-14 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-5">
+      <section className="container-page py-8 sm:py-14 lg:py-20">
+        <div className="grid gap-8 lg:gap-10 lg:grid-cols-5">
           {/* Form */}
           <CheckoutForm />
 
           {/* Order summary */}
           <aside className="lg:col-span-2">
-          <div className="rounded-2xl border border-ink-100 p-6 sticky top-28">
-            <h2 className="font-display font-bold text-lg mb-4">Order summary</h2>
+            <div className="rounded-xl sm:rounded-2xl border border-ink-100 p-4 sm:p-6 lg:sticky lg:top-28">
+              <h2 className="font-display font-bold text-base sm:text-lg mb-3 sm:mb-4">Order summary</h2>
 
-            {cart.items.length === 0 ? (
-              <p className="text-sm text-ink-500">
-                Your cart is empty. <Link href="/#product" className="underline">Add a product</Link> to continue.
-              </p>
-            ) : (
-              <>
-                <ul className="space-y-4 mb-5">
-                  {cart.items.map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <div className="relative h-16 w-16 rounded-lg overflow-hidden bg-ink-100 flex-shrink-0">
-                        <img src={item.image} alt="" className="h-full w-full object-cover" />
-                        <span className="absolute -top-1 -right-1 bg-ink-900 text-white text-[10px] h-5 w-5 grid place-items-center rounded-full">
-                          {item.qty}
-                        </span>
-                      </div>
-                      <div className="flex-1 text-sm">
-                        <p className="font-semibold clamp-2">{item.name}</p>
-                        <p className="text-xs text-ink-500">
-                          {PRODUCT.variants.find((v) => v.id === item.variant)?.label}
-                        </p>
-                      </div>
-                      <span className="text-sm font-semibold">${(item.price * item.qty).toFixed(2)}</span>
-                    </li>
-                  ))}
-                </ul>
+              {cart.items.length === 0 ? (
+                <p className="text-xs sm:text-sm text-ink-500">
+                  Your cart is empty. <Link href="/#product" className="underline">Add a product</Link> to continue.
+                </p>
+              ) : (
+                <>
+                  <ul className="space-y-3 sm:space-y-4 mb-4 sm:mb-5">
+                    {cart.items.map((item, i) => (
+                      <li key={i} className="flex gap-2 sm:gap-3">
+                        <div className="relative h-14 sm:h-16 w-14 sm:w-16 rounded-lg overflow-hidden bg-ink-100 flex-shrink-0">
+                          <img src={item.image} alt="" className="h-full w-full object-cover" />
+                          <span className="absolute -top-1 -right-1 bg-ink-900 text-white text-[9px] sm:text-[10px] h-5 w-5 grid place-items-center rounded-full">
+                            {item.qty}
+                          </span>
+                        </div>
+                        <div className="flex-1 text-xs sm:text-sm">
+                          <p className="font-semibold clamp-2">{item.name}</p>
+                          <p className="text-[10px] sm:text-xs text-ink-500">
+                            {PRODUCT.variants.find((v) => v.id === item.variant)?.label}
+                          </p>
+                        </div>
+                        <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">${(item.price * item.qty).toFixed(2)}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="pt-4 border-t border-ink-100 space-y-2 text-sm">
-                  <div className="flex justify-between"><span className="text-ink-500">Subtotal</span><span className="font-semibold">${cart.subtotal.toFixed(2)}</span></div>
-                  <div className="flex justify-between"><span className="text-ink-500">Shipping</span><span>FREE</span></div>
-                  <div className="flex justify-between"><span className="text-ink-500">Taxes</span><span>Calculated at next step</span></div>
-                  <div className="flex justify-between pt-3 border-t border-ink-100 text-base">
-                    <span className="font-semibold">Total</span>
-                    <span className="font-extrabold tabular-nums">${total.toFixed(2)}</span>
+                  <div className="pt-3 sm:pt-4 border-t border-ink-100 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                    <div className="flex justify-between"><span className="text-ink-500">Subtotal</span><span className="font-semibold">${cart.subtotal.toFixed(2)}</span></div>
+                    <div className="flex justify-between"><span className="text-ink-500">Shipping</span><span>FREE</span></div>
+                    <div className="flex justify-between"><span className="text-ink-500">Taxes</span><span className="text-[10px] sm:text-xs">Calculated next</span></div>
+                    <div className="flex justify-between pt-2 sm:pt-3 border-t border-ink-100 text-sm sm:text-base">
+                      <span className="font-semibold">Total</span>
+                      <span className="font-extrabold tabular-nums">${total.toFixed(2)}</span>
+                    </div>
                   </div>
-                </div>
-              </>
-            )}
-          </div>
+                </>
+              )}
+            </div>
 
-            <div className="text-xs text-ink-400 mt-4 text-center">
-              🔒 Encrypted checkout · 60-day money-back · Cancel any time before shipping
+            <div className="text-[10px] sm:text-xs text-ink-400 mt-3 sm:mt-4 text-center">
+              🔒 Encrypted · 60-day money-back · Cancel anytime
             </div>
           </aside>
         </div>

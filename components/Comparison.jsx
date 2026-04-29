@@ -33,7 +33,8 @@ export default function Comparison() {
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-ink-100">
+      {/* Desktop table */}
+      <div className="hidden md:block overflow-hidden rounded-2xl border border-ink-100">
         <table className="w-full text-left text-sm">
           <thead className="bg-ink-50">
             <tr className="text-ink-500 uppercase text-xs tracking-wider">
@@ -56,6 +57,29 @@ export default function Comparison() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile card layout */}
+      <div className="md:hidden space-y-3">
+        {ROWS.map((row) => (
+          <div key={row.feat} className="rounded-xl border border-ink-100 bg-white p-4">
+            <h3 className="font-semibold text-ink-900 text-sm mb-3">{row.feat}</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <span className="text-xs uppercase text-ink-500 font-semibold block">RYZE</span>
+                <div className="flex items-center gap-2">
+                  {row.ryze === true ? <Tick /> : <span className="text-xs text-ink-500">{row.ryze}</span>}
+                </div>
+              </div>
+              <div className="space-y-1">
+                <span className="text-xs uppercase text-ink-500 font-semibold block">Others</span>
+                <div className="flex items-center gap-2">
+                  {row.others === false ? <X /> : <span className="text-xs text-ink-500">{row.others}</span>}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
