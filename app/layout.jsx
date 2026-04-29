@@ -1,7 +1,5 @@
-'use client';
-
 import './globals.css';
-import { CartProvider } from '@/lib/cart';
+import { Providers } from './Providers';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
@@ -11,13 +9,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-white text-ink-900 font-sans">
-        <CartProvider>
+        <Providers>
           <AnnouncementBar />
           <Navbar />
           <main>{children}</main>
           <Footer />
           <CartDrawer />
-        </CartProvider>
+        </Providers>
       </body>
     </html>
   );
