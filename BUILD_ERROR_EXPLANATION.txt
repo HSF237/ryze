@@ -1,0 +1,94 @@
+================================================================================
+VERCEL BUILD ERROR - ROOT CAUSE AND FIX
+================================================================================
+
+PROBLEM IDENTIFIED:
+The app/layout.jsx file contains unresolved Git merge conflict markers.
+
+ERROR MESSAGE FROM VERCEL:
+"Command 'npm run build' exited with 1"
+"Expected ',', got 'html'" at app/layout.jsx:17:1
+
+WHAT HAPPENED:
+During a previous merge operation, Git merge conflict markers were not fully
+resolved. The file contained:
+  - <<<<<<< HEAD
+  - =======
+  - >>>>>>> faf6e9e88cf736509f21220cc4e4c2e127aa054c
+
+The conflicted section had duplicate/corrupted closing tags:
+  </Providers>Providers>
+  </body>body>
+  </html>html>
+
+WHY THIS BREAKS THE BUILD:
+Next.js cannot parse JSX with merge conflict markers or malformed closing tags.
+The build fails with a syntax error before it can even compile.
+
+SOLUTION:
+The app/layout.jsx file has been cleaned to remove all merge conflict markers
+and keep only the correct version:
+
+BEFORE (Lines 9-39):
+```
+<<<<<<< HEAD
+  return (
+    <html lang="en">
+      ...
+    </html>
+  );
+}
+=======
+  return (
+    <html lang="en">
+      ...
+    </Providers>Providers>
+    </body>body>
+    </html>html>
+  );
+}</html>
+>>>>>>> faf6e9e88cf736509f21220cc4e4c2e127aa054c
+```
+
+AFTER (Clean version):
+```
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className="bg-white text-ink-900 font-sans">
+        <Providers>
+          <AnnouncementBar />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <CartDrawer />
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+NEXT STEPS:
+1. Run: FIX_BUILD_ERROR.bat (simplest)
+   OR manually run the git commands below:
+
+   cd C:\Users\HI\Desktop\MY CODESPACE\RYZE
+   git add app/layout.jsx
+   git commit -m "Fix: Resolve merge conflict in app/layout.jsx"
+   git push origin main
+
+2. GitHub will receive the push and trigger Vercel deployment
+3. Vercel will rebuild (should take 1-2 minutes)
+4. Build should succeed and site will be updated
+
+VERIFICATION:
+After running the fix:
+  1. Check GitHub: https://github.com/HSF237/ryze
+  2. Check Vercel: https://vercel.com/dashboard
+  3. Site: https://ryze-mu.vercel.app should show "Ready" status
+
+================================================================================
+FILE FIXED: app/layout.jsx
+STATUS: ✅ Fixed Locally | ⏳ Ready for Git Push
+================================================================================

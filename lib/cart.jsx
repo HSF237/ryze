@@ -56,7 +56,8 @@ export function CartProvider({ children }) {
     const subtotal = state.items.reduce((s, i) => s + i.price * i.qty, 0);
     const count = state.items.reduce((s, i) => s + i.qty, 0);
     return {
-      ...state,
+      items: state.items,
+      isOpen: state.open,
       hydrated,
       subtotal,
       count,

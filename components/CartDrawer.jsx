@@ -13,14 +13,14 @@ export default function CartDrawer() {
       <div
         onClick={cart.close}
         className={`fixed inset-0 bg-ink-900/40 backdrop-blur-sm z-50 transition-opacity ${
-          cart.open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          cart.isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden="true"
       />
       {/* drawer */}
       <aside
         className={`fixed top-0 right-0 h-full w-full sm:max-w-md bg-white z-50 shadow-2xl flex flex-col transition-transform ${
-          cart.open ? 'translate-x-0' : 'translate-x-full'
+          cart.isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
         aria-label="Shopping cart"
